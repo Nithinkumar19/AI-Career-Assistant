@@ -1,7 +1,7 @@
 # AI Career Assistant: A Multi-Agent Approach
 
 **Author**: [Nithin Kumar K, Bhagya Lakshmi]
-**Linkedin**: [NithinKumar](https://www.linkedin.com/in/nithin-kumar-k-935514258/)[Bhagya Lakshmi](https://www.linkedin.com/in/bhagya-lakshmi-raghupathy-420614318/)
+**Linkedin**: [NithinKumar](https://www.linkedin.com/in/nithin-kumar-k-935514258/), [Bhagya Lakshmi](https://www.linkedin.com/in/bhagya-lakshmi-raghupathy-420614318/)
 
 Welcome to the GenAI Career Assistant, a powerful tool designed to revolutionize the job search process using cutting-edge AI technology. This project leverages a multi-agent architecture to provide personalized career guidance, making job hunting more efficient and tailored to individual needs.
 
