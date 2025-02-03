@@ -51,7 +51,7 @@ uploaded_document = st.sidebar.file_uploader("Upload Your Resume", type="pdf")
 if not uploaded_document:
     uploaded_document = open(dummy_resume_path, "rb")
     st.sidebar.write("Using a dummy resume for demonstration purposes. ")
-    st.sidebar.markdown(f"[View Dummy Resume]({'https://drive.google.com/file/d/1vTdtIPXEjqGyVgUgCO6HLiG9TSPcJ5eM/view?usp=sharing'})", unsafe_allow_html=True)
+    st.sidebar.markdown(f"[View Dummy Resume]({'https://drive.google.com/file/d/1cevpIx-X1aMlVgu86u0Xk-KQmkx0KmGu/view?usp=sharing'})", unsafe_allow_html=True)
     
 bytes_data = uploaded_document.read()
 
