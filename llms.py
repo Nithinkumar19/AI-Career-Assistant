@@ -1,13 +1,26 @@
-#define LLMs
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
-import os 
+import os
 
-def load_llm(llm_name): #gpt-4-0125-preview  gpt-4-turbo-2024-04-09
-    if llm_name=='openai':
-        llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=os.environ["OPENAI_API_KEY"], temperature = 0.1, streaming=True) # type: ignore
-    if llm_name=='groq':
-        llm = ChatGroq(temperature=0.2, groq_api_key=os.environ["GROQ_API_KEY"], model_name="llama3-70b-8192" )  # type: ignore #temperature = 0.1 mixtral-8x7b-32768 llama3-70b-8192
-    if llm_name=="llama3":
-        llm = ChatOpenAI(model="llama3", base_url="http://localhost:11434/v1", temperature = 0.0)
-    return llm
+def load_llm(llm_name):  
+    llm = None  # Initialize llm to avoid errors
+
+    if llm_name == 'openai':
+        openai_key = os.getenv("OPENAI_API_KEY")
+        if not openai_key:
+            raise ValueError("OPENAI_API_KEY is not set in environment variables.")
+        llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=openai_key, temperature=0.1, streaming=True)  
+
+    elif llm_name == 'groq':
+        groq_key = os.getenv("GROQ_API_KEY")
+        if not groq_key:
+            raise ValueError("GROQ_API_KEY is not set in environment variables.")
+        llm = ChatGroq(temperature=0.2, groq_api_key=groq_key, model_name="llama3-70b-8192")
+
+    elif llm_name == "llama3":
+        llm = ChatOpenAI(model="llama3", base_url="http://localhost:11434/v1", temperature=0.0)
+
+    else:
+        raise ValueError(f"Invalid LLM name: {llm_name}. Choose from ['openai', 'groq', 'llama3'].")
+
+    return llm
